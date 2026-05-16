@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gilles Honoris CUBAHIRO - Database & DevOps Engineer Resume</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --accent: #2563eb;
+            --sidebar-bg: #f8fafc;
+            --text-heading: #1e293b;
+            --text-body: #334155;
+            --text-muted: #64748b;
+            --border-light: #e2e8f0;
+            --white: #ffffff;
+            --sidebar-width: 240px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #cbd5e1;
+            color: var(--text-body);
+            line-height: 1.4;
+            display: flex;
+            justify-content: center;
+            padding: 10px;
+        }
+
+        /* 1-Page A4 Container */
+        .resume-container {
+            width: 210mm;
+            min-height: 297mm;
+            max-height: 297mm;
+            background: var(--white);
+            display: grid;
+            grid-template-columns: var(--sidebar-width) 1fr;
+            overflow: hidden;
+            box-shadow: 0 50px 100px rgba(0, 0, 0, 0.15);
+            border-radius: 4px;
+        }
+
+        /* Sidebar Styling */
+        .sidebar {
+            background: linear-gradient(180deg, #1e3a8a 0%, #0f172a 100%);
+            color: white;
+            padding: 25px 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .profile-img-container {
+            width: 110px;
+            height: 110px;
+            margin: 0 auto 10px;
+            border-radius: 50%;
+            border: 3px solid rgba(255, 255, 255, 0.1);
+            overflow: hidden;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .profile-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .name-wrapper h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 17.1px;
+            /* -4% from 17.8px */
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: white;
+            text-align: center;
+        }
+
+        .job-title {
+            font-size: 10.7px;
+            /* -4% from 11.1px */
+            font-weight: 600;
+            color: #94a3b8;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 5px;
+            text-align: center;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-top: 10px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .contact-link {
+            color: #cbd5e1;
+            text-decoration: none;
+            font-size: 10.7px;
+            /* -4% from 11.1px */
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .contact-link i {
+            width: 24px;
+            height: 24px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #3b82f6;
+            font-size: 11.7px;
+            /* -4% from 12.2px */
+        }
+
+        .sidebar-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 12.9px;
+            /* -4% from 13.4px */
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            color: #3b82f6;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .sidebar-title::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .skill-group {
+            margin-bottom: 12px;
+        }
+
+        .skill-label {
+            font-size: 9.6px;
+            /* -4% from 10px */
+            font-weight: 700;
+            color: #94a3b8;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px;
+        }
+
+        .skill-tag {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 9.6px;
+            /* -4% from 10px */
+            color: #e2e8f0;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .lang-item {
+            display: flex;
+            justify-content: space-between;
+            font-size: 10.7px;
+            color: #cbd5e1;
+            margin-bottom: 6px;
+        }
+
+        .lang-level {
+            color: #94a3b8;
+            font-weight: 600;
+        }
+
+        /* Main Content Styling */
+        .main-content {
+            padding: 25px 25px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 10px;
+        }
+
+        .section-header h2 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 16px;
+            /* -4% from 16.7px */
+            font-weight: 700;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            white-space: nowrap;
+        }
+
+        .section-header::after {
+            content: '';
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent) 0%, #e2e8f0 100%);
+            flex: 1;
+        }
+
+        .summary-box {
+            background: #f8fafc;
+            border-radius: 8px;
+            padding: 12px 15px;
+            border-left: 4px solid var(--accent);
+            font-size: 12.2px;
+            /* -4% from 12.7px */
+            color: var(--text-body);
+            line-height: 1.5;
+        }
+
+        .experience-item {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            bottom: -15px;
+            width: 2px;
+            background: var(--border-light);
+        }
+
+        .experience-item:last-child::before {
+            display: none;
+        }
+
+        .experience-item::after {
+            content: '';
+            position: absolute;
+            left: -4px;
+            top: 6px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--accent);
+            box-shadow: 0 0 0 3px white;
+        }
+
+        .exp-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 4px;
+        }
+
+        .exp-role {
+            font-family: 'Outfit', sans-serif;
+            font-size: 14.4px;
+            /* -4% from 15px */
+            font-weight: 700;
+            color: var(--text-heading);
+        }
+
+        .exp-company {
+            font-size: 12.9px;
+            /* -4% from 13.4px */
+            font-weight: 600;
+            color: var(--accent);
+        }
+
+        .exp-date {
+            font-size: 10.2px;
+            font-weight: 700;
+            color: var(--text-muted);
+            background: #f1f5f9;
+            padding: 3px 10px;
+            border-radius: 20px;
+            white-space: nowrap;
+            height: fit-content;
+            align-self: flex-start;
+            display: inline-block;
+            border: 1px solid var(--border-light);
+        }
+
+        .exp-desc {
+            font-size: 11.7px;
+            color: var(--text-muted);
+            font-style: italic;
+            margin-bottom: 4px;
+        }
+
+        .exp-list {
+            list-style: none;
+        }
+
+        .exp-list li {
+            position: relative;
+            padding-left: 14px;
+            font-size: 11.7px;
+            margin-bottom: 2px;
+            color: var(--text-body);
+        }
+
+        .exp-list li::before {
+            content: '›';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: 800;
+            font-size: 14.9px;
+            line-height: 1;
+            top: -1px;
+        }
+
+        .edu-grid {
+            display: grid;
+            gap: 8px;
+        }
+
+        .edu-card {
+            background: white;
+            border: 1px solid var(--border-light);
+            padding: 10px 12px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .edu-card h4 {
+            font-size: 13.4px;
+            /* -4% from 13.9px */
+            font-weight: 700;
+            color: var(--text-heading);
+        }
+
+        .edu-card p {
+            font-size: 11.1px;
+            color: var(--text-muted);
+        }
+
+        .award-box {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: linear-gradient(135deg, #f8fafc 0%, #eff6ff 100%);
+            padding: 12px 15px;
+            border-radius: 8px;
+            border: 1px solid #dbeafe;
+        }
+
+        .award-icon {
+            width: 36px;
+            height: 36px;
+            background: white;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #d97706;
+            font-size: 17.1px;
+        }
+
+        .award-content h5 {
+            font-size: 13.4px;
+            font-weight: 700;
+            color: var(--text-heading);
+        }
+
+        .award-content p {
+            font-size: 11.1px;
+            color: var(--text-muted);
+        }
+
+        @media print {
+            body {
+                padding: 0;
+                background: white;
+            }
+
+            .resume-container {
+                box-shadow: none;
+                border-radius: 0;
+                width: 100%;
+                height: 297mm;
+                max-height: 297mm;
+            }
+
+            @page {
+                size: A4;
+                margin: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="resume-container">
+        <aside class="sidebar">
+            <div class="profile-section">
+                <div class="profile-img-container">
+                    <img src="honoris_photo.jpeg" alt="Gilles Honoris CUBAHIRO" class="profile-img"
+                        onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Gilles+Honoris&background=2563eb&color=fff&size=200';">
+                </div>
+                <div class="name-wrapper">
+                    <h1>Gilles Honoris CUBAHIRO</h1>
+                    <p class="job-title">Database & DevOps Engineer</p>
+                </div>
+            </div>
+
+            <div class="contact-info">
+                <a href="https://wa.me/25761735456" class="contact-link">
+                    <i class="fab fa-whatsapp"></i> <span>+257 61735456</span>
+                </a>
+                <a href="tel:+25767774488" class="contact-link">
+                    <i class="fas fa-phone"></i> <span>+257 67774488</span>
+                </a>
+                <a href="mailto:gcubahiro6@gmail.com" class="contact-link">
+                    <i class="fas fa-envelope"></i> <span>gcubahiro6@gmail.com</span>
+                </a>
+                <span class="contact-link">
+                    <i class="fas fa-map-marker-alt"></i> <span>Bujumbura, Burundi</span>
+                </span>
+                <a href="https://linkedin.com/in/gilles-honoris-cubahiro-99a615173" target="_blank"
+                    class="contact-link">
+                    <i class="fab fa-linkedin"></i> <span>linkedin.com/in/gilles-honoris</span>
+                </a>
+            </div>
+
+            <div class="sidebar-block">
+                <h3 class="sidebar-title">Expertise</h3>
+                <div class="skill-group">
+                    <div class="skill-label">Databases</div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">PostgreSQL</span> <span class="skill-tag">MySQL</span>
+                        <span class="skill-tag">Oracle</span> <span class="skill-tag">MS SQL Server</span>
+                        <span class="skill-tag">Redis</span> <span class="skill-tag">Perf Tuning</span>
+                        <span class="skill-tag">High Availability</span>
+                    </div>
+                </div>
+                <div class="skill-group">
+                    <div class="skill-label">DevOps & Cloud</div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Docker</span> <span class="skill-tag">Ansible</span>
+                        <span class="skill-tag">Terraform</span> <span class="skill-tag">IaaS (AWS)</span>
+                        <span class="skill-tag">Linux Admin</span> <span class="skill-tag">CI/CD</span>
+                    </div>
+                </div>
+                <div class="skill-group">
+                    <div class="skill-label">Programming</div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">SQL</span> <span class="skill-tag">Python</span>
+                        <span class="skill-tag">Bash</span> <span class="skill-tag">Perl</span>
+                        <span class="skill-tag">PHP/Laravel</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sidebar-block">
+                <h3 class="sidebar-title">Languages</h3>
+                <div class="lang-item"><span>Kirundi</span> <span class="lang-level">Native</span></div>
+                <div class="lang-item"><span>French</span> <span class="lang-level">Proficient</span></div>
+                <div class="lang-item"><span>English</span> <span class="lang-level">Advanced</span></div>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <section>
+                <div class="section-header">
+                    <h2>Summary</h2>
+                </div>
+                <div class="summary-box">
+                    Database and DevOps Engineer with deep expertise in managing mission-critical data infrastructures
+                    for
+                    Core Banking Systems (CBS). Specialized in PostgreSQL administration, performance tuning, and
+                    high-availability replication. Proven track record in securing financial data environments,
+                    optimizing distributed systems, and bridging the gap between banking software and fintech
+                    integrations.
+                </div>
+            </section>
+
+            <section>
+                <div class="section-header">
+                    <h2>Experience</h2>
+                </div>
+                <div class="experience-item">
+                    <div class="exp-header">
+                        <div>
+                            <div class="exp-role">Founder & CEO</div>
+                            <div class="exp-company">ADASTRA – Consulting & Training</div>
+                        </div>
+                        <span class="exp-date">02/2025 – PRESENT</span>
+                    </div>
+                    <p class="exp-desc">Driving digital transformation through training and IT consulting.</p>
+                    <ul class="exp-list">
+                        <li>Deliver capacity-building programs in databases and system administration.</li>
+                        <li>Participate in end-to-end software projects focusing on security.</li>
+                        <li>Lead DevOps initiatives including deployment automation.</li>
+                        <li>Provide expert technical consultancy for reliable IT operations.</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <div class="exp-header">
+                        <div>
+                            <div class="exp-role">Support and Implementation Officer (Database & DevOps)</div>
+                            <div class="exp-company">ADFinance – African Core Banking Solutions</div>
+                        </div>
+                        <span class="exp-date">10/2022 – 01/2025</span>
+                    </div>
+                    <p class="exp-desc">Ensuring the integrity of adbanking, the flagship Core Banking System (CBS) for
+                        60+
+                        institutions across Africa.</p>
+                    <ul class="exp-list">
+                        <li>Database Administration: Managed and optimized critical databases for the adbanking CBS,
+                            ensuring data integrity and high-availability operations.</li>
+                        <li>Data Replication & Sync: Designed and maintained complex data replication and
+                            synchronization
+                            solutions across distributed systems.</li>
+                        <li>Performance & Query Optimization: Improved database performance and reliability through
+                            proactive tuning and infrastructure optimization.</li>
+                        <li>Systems Operations: Monitored and troubleshooted mission-critical production issues across
+                            CBS, Mobile Banking, and BI platforms.</li>
+                        <li>Fintech Integration: Deploying and integrating mobile banking platforms with e-wallet
+                            providers (Lumicash, Enoti, GSIE-fintech – Burkina Faso, Cashtel, etc.).</li>
+                        <li>Business Intelligence (BI): Setting up and supporting end-to-end data-driven solutions.</li>
+                        <li>SMS Banking: Managing and supporting integrations for institutional clients.</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item" style="margin-bottom: 5px;">
+                    <div class="exp-header">
+                        <div>
+                            <div class="exp-role">Asset Inventory Assistant</div>
+                            <div class="exp-company">Inades-Formation</div>
+                        </div>
+                        <span class="exp-date">10/2018</span>
+                    </div>
+                    <ul class="exp-list">
+                        <li>Assisted in the digital cataloging and classification of fixed assets.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section>
+                <div class="section-header">
+                    <h2>Education</h2>
+                </div>
+                <div class="edu-grid">
+                    <div class="edu-card">
+                        <div>
+                            <h4>Bachelor’s Degree in CS (Software Engineering)</h4>
+                            <p>University of Lake Tanganyika</p>
+                        </div>
+                        <span class="exp-date">2019 – 2022</span>
+                    </div>
+                    <div class="edu-card">
+                        <div>
+                            <h4>Cloud Infrastructure Certification</h4>
+                            <p>KWIGA Summer School | University of Lake Tanganyika</p>
+                            <p style="font-size: 9.6px; margin-top: 3px; color: var(--text-muted);">Focus:
+                                Virtualization (Xen, KVM), AWS IaaS, Docker, Ansible/Teform.</p>
+                        </div>
+                        <span class="exp-date">09/2025</span>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <div class="section-header">
+                    <h2>Awards</h2>
+                </div>
+                <div class="award-box">
+                    <div class="award-icon"><i class="fas fa-medal"></i></div>
+                    <div class="award-content">
+                        <h5>2nd Prize – Digital Innovation Exhibition</h5>
+                        <p>Imvura Foundation – Digital transformation excellence (Sept 2022)</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+</body>
+
+</html>
